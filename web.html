@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REGADES WEB — ホームページ・オーダーシステム・業務システム制作（横須賀）</title>
+<meta name="description" content="REGADESのWEB制作。お店や会社のホームページ、飲食店のテイクアウト・モバイルオーダーシステム、業務を効率化するシステムを横須賀から制作します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060A;--bg2:#0A0C14;--fg:#E8ECF4;--mute:#7C8496;--line:rgba(140,170,255,.14);--c:#3FD0FF;--m:#FF3D9A;--y:#FFC94A;--glow:0 0 24px rgba(63,208,255,.45)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:"Space Grotesk","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+#net{position:fixed;inset:0;z-index:0;pointer-events:none}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/64px 64px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/64px 64px;
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 75%);opacity:.55}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:40;border-bottom:1px solid var(--line);background:rgba(5,6,10,.6);backdrop-filter:blur(14px)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.14em;font-size:15px}
+.logo .dot{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:var(--glow);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+header nav{display:flex;gap:26px;font-size:11px;letter-spacing:.16em;color:var(--mute)}
+header nav a:hover{color:var(--c)}
+@media(max-width:720px){header nav a:not(:last-child){display:none}}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px}
+.hero .wrap{width:100%}
+.hgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.hgrid .term{margin-top:40px}
+@media(min-width:981px){.hgrid .term{margin-top:0}.hgrid h1{font-size:clamp(64px,10vw,150px)}}
+@media(max-width:980px){.hgrid{grid-template-columns:1fr;gap:0}}
+.sys{font-size:11px;letter-spacing:.24em;color:var(--c);display:flex;gap:14px;align-items:center}
+.sys::before{content:"";width:36px;height:1px;background:var(--c);box-shadow:var(--glow)}
+.hero h1{font-size:clamp(64px,13vw,200px);font-weight:700;line-height:.86;letter-spacing:-.05em;margin:26px 0 10px;position:relative}
+.hero h1 .g{background:linear-gradient(100deg,#fff 0%,#B9E9FF 35%,var(--c) 55%,var(--m) 80%,var(--y) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:sheen 8s ease-in-out infinite}
+@keyframes sheen{50%{background-position:100% 0}}
+.hero h1 .sub{display:block;font-size:.34em;letter-spacing:-.02em;font-weight:300;color:var(--fg);margin-top:.25em}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-t);position:absolute;inset:0;opacity:0}
+.glitch::before{color:var(--c);transform:translate(2px,0);clip-path:inset(0 0 60% 0);animation:gl 3.2s infinite steps(1)}
+.glitch::after{color:var(--m);transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:gl 2.6s infinite steps(1) reverse}
+@keyframes gl{0%,92%{transform:translate(0);opacity:0}93%{transform:translate(4px,-2px);opacity:.8}95%{transform:translate(-4px,2px);opacity:.8}97%{transform:translate(2px,1px);opacity:.8}98%{opacity:0}}
+.hero .jp{font-size:clamp(15px,1.8vw,19px);letter-spacing:.4em;color:#C9D2E6;margin-top:26px;font-weight:300}
+.hero .lead{max-width:560px;color:var(--mute);font-size:14.5px;line-height:2;margin-top:28px}
+.term{margin-top:44px;max-width:640px;border:1px solid var(--line);background:rgba(10,12,20,.7);backdrop-filter:blur(6px);font-size:12.5px;line-height:1.9}
+.term .bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.term .bar i{width:9px;height:9px;border-radius:50%;background:#2a2f3d}
+.term .bar i:nth-child(1){background:var(--m)}.term .bar i:nth-child(2){background:var(--y)}.term .bar i:nth-child(3){background:var(--c)}
+.term pre{padding:16px 18px;color:#B8C3D9;white-space:pre-wrap;height:430px;overflow:hidden}
+.term .p{color:var(--c)}.term .ok{color:#6CFFB5}.term .c{color:#5B6478}.term .y{color:var(--y)}
+.caret{display:inline-block;width:8px;height:14px;background:var(--c);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* section */
+section.blk{padding:130px 0;border-top:1px solid var(--line);position:relative}
+.h2{font-size:clamp(34px,5vw,64px);font-weight:500;letter-spacing:-.03em;line-height:1.05;margin:20px 0 16px}
+.h2 em{font-style:normal;color:var(--c);text-shadow:var(--glow)}
+.desc{color:var(--mute);max-width:620px;font-size:14.5px;line-height:2}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px}
+@media(max-width:900px){.svc{grid-template-columns:1fr}}
+.card{position:relative;padding:34px 28px 30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(20,26,44,.55),rgba(8,10,18,.55));backdrop-filter:blur(8px);overflow:hidden;transition:border-color .3s,transform .3s}
+.card::before{content:"";position:absolute;inset:-1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--acc) 80%,transparent 90%);opacity:0;transition:opacity .4s;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px}
+.card:hover{transform:translateY(-4px)}
+.card:hover::before{opacity:1;animation:spin 3s linear infinite}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.card .code{font-size:11px;letter-spacing:.2em;color:var(--acc)}
+.card .ic{width:54px;height:54px;margin:26px 0 22px;border:1px solid var(--acc);display:grid;place-items:center;box-shadow:0 0 22px color-mix(in srgb,var(--acc) 35%,transparent)}
+.card .ic svg{width:26px;height:26px;stroke:var(--acc)}
+.card h3{font-size:21px;font-weight:500;margin-bottom:6px}
+.card .en{font-size:11px;letter-spacing:.18em;color:var(--mute);margin-bottom:16px}
+.card p{font-size:13.5px;color:#A6AFC2;line-height:1.95}
+.card ul{list-style:none;margin-top:20px;border-top:1px dashed var(--line);padding-top:14px}
+.card li{font-size:12px;color:#C4CCDD;padding:4px 0}
+.card li::before{content:"› ";color:var(--acc)}
+
+/* why */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.why{grid-template-columns:1fr}}
+.orb{aspect-ratio:1;position:relative;max-width:460px;width:100%;margin:0 auto}
+.orb .r{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%}
+.orb .r:nth-child(2){inset:12%;border-color:rgba(63,208,255,.35);animation:rot 18s linear infinite;border-style:dashed}
+.orb .r:nth-child(3){inset:26%;border-color:rgba(255,61,154,.35);animation:rot 12s linear infinite reverse}
+.orb .r:nth-child(4){inset:40%;background:radial-gradient(circle,rgba(63,208,255,.4),transparent 70%);border:none;filter:blur(2px)}
+.orb .n{position:absolute;font-size:10.5px;letter-spacing:.16em;color:var(--fg);background:rgba(5,6,10,.85);border:1px solid var(--line);padding:5px 10px;white-space:nowrap}
+.orb .n::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--k,var(--c));margin-right:8px;vertical-align:1px;box-shadow:0 0 10px var(--k,var(--c))}
+@keyframes rot{to{transform:rotate(360deg)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:36px;border:1px solid var(--line)}
+.stats div{padding:20px 18px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:none}
+.stats b{display:block;font-size:26px;font-weight:500;color:var(--fg)}
+.stats span{font-size:10.5px;letter-spacing:.14em;color:var(--mute)}
+
+/* process */
+.proc{margin-top:60px;position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.proc::before{content:"";position:absolute;left:0;right:0;top:19px;height:1px;background:linear-gradient(90deg,var(--c),var(--m),var(--y));opacity:.6}
+.proc li{list-style:none;position:relative;padding-top:52px}
+.proc li::before{content:attr(data-n);position:absolute;top:0;left:0;width:39px;height:39px;border:1px solid var(--c);background:var(--bg);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--c);box-shadow:var(--glow)}
+.proc b{display:block;font-size:16px;font-weight:500;margin-bottom:8px}
+.proc span{font-size:12.5px;color:var(--mute);line-height:1.85}
+@media(max-width:900px){.proc{grid-template-columns:1fr}.proc::before{left:19px;right:auto;top:0;bottom:0;width:1px;height:auto}.proc li{padding:0 0 0 64px;min-height:56px}}
+
+
+/* contact */
+.contact{text-align:center;padding:150px 0 140px;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;top:60%;width:900px;height:420px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(63,208,255,.18),rgba(255,61,154,.08) 45%,transparent 70%);filter:blur(10px)}
+.contact .h2{font-size:clamp(36px,6vw,80px)}
+.btn{display:inline-flex;align-items:center;gap:14px;margin-top:40px;padding:18px 34px;border:1px solid var(--c);color:var(--c);font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.12em;position:relative;overflow:hidden;transition:color .3s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--c);transform:translateX(-101%);transition:transform .35s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover{color:var(--bg)}.btn:hover::before{transform:none}
+.mail{margin-top:18px;font-size:12.5px;color:var(--mute)}
+
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:11px;letter-spacing:.14em;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.cmyk{display:inline-flex;height:4px;width:96px;vertical-align:middle}
+.cmyk i{flex:1}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="./"><span class="dot"></span>REGADES<span class="mono" style="color:var(--mute);font-weight:400;letter-spacing:.2em;font-size:11px">/ WEB</span></a>
+    <nav class="mono"><a href="#service">SERVICE</a><a href="#why">WHY</a><a href="#process">PROCESS</a><a href="#contact">CONTACT</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hgrid"><div>
+    <div class="sys mono">04 — WEB &amp; SYSTEM / REGADES</div>
+    <h1><span class="glitch g" data-t="WEB">WEB</span><span class="sub">&amp; System Design</span></h1>
+    <div class="jp">サイトも、仕組みも、つくる。</div>
+    <p class="lead">お店や会社のホームページから、お客様がスマホで注文できるオーダーシステム、毎日の手作業を減らす業務システムまで。高い月額のサービスに縛られず、必要なものを、必要な分だけ。</p>
+    </div>
+    <div class="term mono">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <pre id="typed"></pre>
+    </div></div>
+  </div>
+</section>
+
+<section class="blk" id="service">
+  <div class="wrap">
+    <div class="sys mono">SERVICE // 03 MODULES</div>
+    <h2 class="h2 reveal">つくれるものは、<br><em>3つ</em>のレイヤー。</h2>
+    <div class="svc">
+      <div class="card reveal" style="--acc:var(--c)">
+        <div class="code mono">MOD.01</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M3 8h18M8 21h8"/></svg></div>
+        <h3>ホームページ制作</h3>
+        <div class="en mono">WEBSITE</div>
+        <p>お店・会社・チーム・ブランドのサイト。スマホで見やすく、GoogleやChatGPTなどのAI検索にも見つけてもらいやすい作りに。</p>
+        <ul class="mono"><li>コーポレート／店舗サイト</li><li>ブランドサイト・LP</li><li>Wixなどからの乗り換え</li></ul>
+      </div>
+      <div class="card reveal" style="--acc:var(--m)">
+        <div class="code mono">MOD.02</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4M9 7h6M9 11h6"/></svg></div>
+        <h3>オーダーシステム</h3>
+        <div class="en mono">ORDER SYSTEM</div>
+        <p>飲食店のテイクアウト・モバイルオーダーなど、お客様がスマホから注文できる仕組み。お店の名前のドメインで、自分のお店の注文ページを。</p>
+        <ul class="mono"><li>テイクアウト予約</li><li>モバイルオーダー</li><li>注文の通知・管理画面</li></ul>
+      </div>
+      <div class="card reveal" style="--acc:var(--y)">
+        <div class="code mono">MOD.03</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg></div>
+        <h3>業務システム</h3>
+        <div class="en mono">BUSINESS SYSTEM</div>
+        <p>見積もり・受付・予約・顧客管理など、紙や手作業で回している業務を、使う人に合わせたシステムに。</p>
+        <ul class="mono"><li>見積もり・受付フォーム</li><li>予約・顧客管理</li><li>業務の自動化</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="why">
+  <div class="wrap why">
+    <div class="reveal">
+      <div class="sys mono">WHY REGADES</div>
+      <h2 class="h2">使う人の<br>仕事から、<br><em>逆算</em>してつくる。</h2>
+      <p class="desc">REGADESは、自分たちのプリント事業でも見積もりフォームや受注の仕組みを自作して、毎日使っています。「作って終わり」ではなく、現場で回るかどうか。ロゴやデザイン、ユニフォームやグッズまで同じ窓口で頼めるのも、REGADESならではです。</p>
+      <div class="stats mono">
+        <div><b>LOW</b><span>RUNNING COST</span></div>
+        <div><b>1:1</b><span>DIRECT CONTACT</span></div>
+        <div><b>ALL</b><span>DESIGN → PRINT → WEB</span></div>
+      </div>
+    </div>
+    <div class="orb reveal">
+      <span class="r"></span><span class="r"></span><span class="r"></span><span class="r"></span>
+      <span class="n mono" style="left:4%;top:16%;--k:var(--c)">DESIGN</span>
+      <span class="n mono" style="right:0;top:30%;--k:var(--m)">WEBSITE</span>
+      <span class="n mono" style="left:0;bottom:24%;--k:var(--y)">ORDER</span>
+      <span class="n mono" style="right:8%;bottom:10%;--k:#fff">PRINT</span>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="process">
+  <div class="wrap">
+    <div class="sys mono">PROCESS // 05 STEPS</div>
+    <h2 class="h2 reveal">相談から公開まで。</h2>
+    <ol class="proc reveal">
+      <li data-n="01"><b>ご相談</b><span>やりたいこと、困っていることをお聞かせください。決まっていない段階で大丈夫です。</span></li>
+      <li data-n="02"><b>ご提案・お見積り</b><span>必要な機能と費用、公開までのスケジュールをご提案します。</span></li>
+      <li data-n="03"><b>デザイン・制作</b><span>画面のイメージを確認しながら作っていきます。</span></li>
+      <li data-n="04"><b>公開</b><span>ドメインの設定から公開まで対応します。</span></li>
+      <li data-n="05"><b>運用サポート</b><span>公開後の修正や機能追加もご相談ください。</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sys mono" style="justify-content:center">CONTACT // OPEN</div>
+    <h2 class="h2">Let's build<br><em>something.</em></h2>
+    <p class="desc" style="margin:0 auto">サイト・システムのご相談はこちら。お見積りは無料です。</p>
+    <a class="btn" href="mailto:regades.1998.070209@gmail.com?subject=WEB制作のご相談">&gt; SEND MESSAGE</a>
+    <div class="mail mono">regades.1998.070209@gmail.com</div>
+  </div>
+</section>
+
+<footer class="mono">
+  <div class="wrap">
+    <span>© REGADES / WEB — YOKOSUKA, JP</span>
+    <span><a href="./">← REGADES TOP</a>&nbsp;&nbsp;<span class="cmyk"><i style="background:#fff"></i><i style="background:var(--c)"></i><i style="background:var(--m)"></i><i style="background:var(--y)"></i></span></span>
+  </div>
+</footer>
+
+<script>
+// 背景のネットワーク
+(function(){
+  const cv=document.getElementById('net'),cx=cv.getContext('2d');let W,H,pts=[],mx=-999,my=-999;
+  const cols=['63,208,255','255,61,154','255,201,74'];
+  function rs(){W=cv.width=innerWidth*devicePixelRatio;H=cv.height=innerHeight*devicePixelRatio;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+    const n=Math.min(90,Math.floor(innerWidth*innerHeight/16000));pts=[];
+    for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*devicePixelRatio,vy:(Math.random()-.5)*.25*devicePixelRatio,c:cols[i%3]});}
+  addEventListener('resize',rs);addEventListener('mousemove',e=>{mx=e.clientX*devicePixelRatio;my=e.clientY*devicePixelRatio});rs();
+  const D=140*devicePixelRatio;
+  (function f(){cx.clearRect(0,0,W,H);
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+    for(let i=0;i<pts.length;i++){const a=pts[i];
+      for(let j=i+1;j<pts.length;j++){const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<D){cx.strokeStyle=`rgba(${a.c},${(1-d/D)*.22})`;cx.lineWidth=devicePixelRatio*.6;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}
+      const dm=Math.hypot(a.x-mx,a.y-my);if(dm<D*1.4){cx.strokeStyle=`rgba(${a.c},${(1-dm/(D*1.4))*.5})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.stroke();}
+      cx.fillStyle=`rgba(${a.c},.8)`;cx.beginPath();cx.arc(a.x,a.y,1.4*devicePixelRatio,0,7);cx.fill();}
+    requestAnimationFrame(f);})();
+})();
+// ターミナルのタイピング
+(function(){
+  const lines=[
+    ['p','$ regades init --project your-shop --type cafe'],
+    ['','\n  creating project ......................... '],['ok','done'],
+    ['c','\n\n// 01. design'],
+    ['','\n  › brand colors, logo, fonts ............ '],['ok','ready'],
+    ['','\n  › mobile first layout .................. '],['ok','ready'],
+    ['c','\n\n// 02. build modules'],
+    ['','\n  › website ............................... '],['ok','ready'],
+    ['','\n  › order system (takeout / mobile) ....... '],['ok','ready'],
+    ['','\n  › admin dashboard ....................... '],['ok','ready'],
+    ['','\n  › notifications (mail) .................. '],['ok','ready'],
+    ['','\n  › seo + ai search (google / chatgpt) .... '],['ok','ready'],
+    ['c','\n\n// 03. test'],
+    ['p','\n$ npm run test'],
+    ['','\n  ✓ order flow     ✓ payment     ✓ smartphone'],
+    ['','\n  ✓ security       ✓ speed: 0.8s'],
+    ['ok','\n  42 passed, 0 failed'],
+    ['c','\n\n// 04. launch'],
+    ['p','\n$ deploy --domain your-shop.jp'],
+    ['','\n  uploading ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 100%'],
+    ['ok','\n  ✓ live → https://your-shop.jp'],
+    ['','\n\n  running cost: '],['y','minimal'],
+    ['p','\n\n$ regades support --after-launch'],
+    ['ok','\n  › standing by. ']
+  ];
+  const el=document.getElementById('typed');let li=0,ci=0,cur=null;
+  function step(){ if(li>=lines.length){el.insertAdjacentHTML('beforeend','<span class="caret"></span>');return;}
+    const [cls,t]=lines[li]; if(!cur){cur=document.createElement('span');if(cls)cur.className=cls;el.appendChild(cur);}
+    cur.textContent+=t[ci++]; el.scrollTop=el.scrollHeight; if(ci>=t.length){li++;ci=0;cur=null;setTimeout(step,cls==='ok'?260:120);}else setTimeout(step,cls==='p'?30:9);}
+  setTimeout(step,600);
+})();
+// スクロールで表示
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+/* ページを開いたら必ず一番上から表示する（#付きのリンクで来たときだけその場所へ） */
+(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+  function toTop(){if(location.hash)return;window.scrollTo({top:0,left:0,behavior:'instant'});try{document.documentElement.scrollIntoView({block:'start',behavior:'instant'});}catch(e){}}
+  toTop();document.addEventListener('DOMContentLoaded',toTop);addEventListener('load',()=>{toTop();setTimeout(toTop,60);});addEventListener('pageshow',toTop);})();
+</script>
+</body>
+</html>
