@@ -138,11 +138,11 @@ section.biz{padding:110px 0;border-top:1px solid rgba(22,24,27,.14)}
 .prod .pr{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 
 /* 上部のYOKOSUKA PRINTリンク */
-.xbar{background:var(--ink);color:#c9ccd1;font-size:12px}
-.xbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:7px;padding-bottom:7px}
+.xbar{background:#0f172a;color:#c9ccd1;font-size:14px;border-bottom:3px solid var(--c)}
+.xbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;padding-bottom:14px}
 .xbar a{text-decoration:none;white-space:nowrap}
-.xbar b{color:#fff;letter-spacing:.12em;font-weight:800}
+.xbar b{color:#fff;letter-spacing:.12em;font-weight:800;font-size:15px}
 .xbar span{color:#8f949b}
-.xbar .r{display:flex;gap:18px}
-.xbar .r a{color:#fff;font-weight:700}
+.xbar .r{display:flex;gap:10px}
+.xbar .r a{color:#0f172a;background:#fff;font-weight:700;padding:7px 14px;border-radius:999px;font-size:13px}
 @media(max-width:620px){.xbar a span{display:none}.xbar .r a:last-child{display:none}}
