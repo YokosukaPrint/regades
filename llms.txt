@@ -7,6 +7,9 @@
 - YOKOSUKA PRINT（ウェアのプリント）: Tシャツ・パーカー・トートバッグなどのオリジナルプリントを1枚から。英語対応あり。 https://yokosukaprint.jp/ （英語: https://yokosukaprint.jp/en/）
 - FLOW（ウェルネスウェア）: ランニング・ジム・HYROX向けのウェルネスウェアブランド。発売準備中。 https://www.regades.com/flow.html
 - WEB（サイト・システム制作）: ホームページ制作、飲食店のテイクアウト・モバイルオーダーなどのオーダーシステム、見積もり・予約などの業務システム。 https://www.regades.com/web.html
+  - 飲食店のテイクアウト・モバイルオーダー注文サイト制作: https://www.regades.com/web-takeout.html
+  - Wix・ペライチからの乗り換え・リニューアル（URLはそのまま、月額を見直し）: https://www.regades.com/web-wix.html
+  - 制作実績: YokosukaPrint（自動見積もりシミュレーター付きサイト・日英2言語）、REGADES（Wixから移行）
 
 ## 連絡先
 - お問い合わせ: 各ページのメールリンクから
